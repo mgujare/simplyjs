@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<script src="https://s.yimg.com/ss/rapid-3.32.js"></script>
 <p>Simple JS calculation</p>
 
 <p id="demo"></p>
 
 <script>
-function myFunction(a, b) {
-    return a * b;
-}
-document.getElementById("demo").innerHTML = myFunction(4, 3);
 
-function myClickFunction(item) {
-   document.getElementById("demo").innerHTML = item;
-}
+var searchBuzzConf = { 
+        spaceid:12345, 
+        tracked_mods:[]};
+
+var sbRapidInstance = new YAHOO.i13n.Rapid(searchBuzzConf);
+
+function sbPageView() {
+    //Page view beacon with page parameters
+	var sbParams = {
+		pt: '1',
+		pd: 'SearchbuzzPageView'};
+		sbRapidInstance.beaconPageview(sbParams);
+		document.getElementById("demo").innerHTML = 'Page View';
+	}
+
+function buzzItemClick(item, position) {
+   	//simple click beacon
+	sbRapidInstance.beaconClick('native_search_buzz', item, position);	
+   	document.getElementById("demo").innerHTML = item;
+	}
+
+sbPageView();
 
 </script>
 
