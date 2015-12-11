@@ -18,9 +18,9 @@ function sbPageView(appId) {
     //Page view beacon with page parameters
 	var sbParams = {
 		pt: appId,
-		pd: 'SearchbuzzPageView'};
+		pd: 'native_search_buzz_page_view'};
 		sbRapidInstance.beaconPageview(sbParams);
-		document.getElementById("demo").innerHTML = 'Page View';
+		document.getElementById("demo").innerHTML = 'Page View ' + appId;
 	}
 
 function buzzItemClick(appId, item) {
