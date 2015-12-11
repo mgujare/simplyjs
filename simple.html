@@ -14,22 +14,20 @@ var searchBuzzConf = {
 
 var sbRapidInstance = new YAHOO.i13n.Rapid(searchBuzzConf);
 
-function sbPageView() {
+function sbPageView(appId) {
     //Page view beacon with page parameters
 	var sbParams = {
-		pt: '1',
+		pt: appId,
 		pd: 'SearchbuzzPageView'};
 		sbRapidInstance.beaconPageview(sbParams);
 		document.getElementById("demo").innerHTML = 'Page View';
 	}
 
-function buzzItemClick(item, position) {
-   	//simple click beacon
-	sbRapidInstance.beaconClick('native_search_buzz', item, position);	
-   	document.getElementById("demo").innerHTML = item + ' ' + position;
+function buzzItemClick(appId, item) {
+   	//search buzz item click beacon
+	sbRapidInstance.beaconClick('native_search_buzz_item_click', appId, item);	
+   	document.getElementById("demo").innerHTML = appId + ' ' + item;
 	}
-
-sbPageView();
 
 </script>
 
